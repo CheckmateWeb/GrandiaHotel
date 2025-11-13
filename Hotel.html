@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grandia Hotel</title>
+  <link rel="stylesheet" href="Hotel.css" />
+</head>
+
+<body>
+  <div class="main-container">
+
+    <h1 class="title">🏨 Welcome to <span>Grandia Hotel</span></h1>
+
+    <!-- Available Rooms -->
+    <div class="hotel-container">
+      <!-- Deluxe Room -->
+      <div class="hotel-card">
+        <img src="images2/DeluxRoom.avif" alt="Deluxe Room"
+          onclick="showRoomDetails('Deluxe Room', '₱3,500 per night', 'A spacious room with a modern design, queen-sized bed, and city view. Perfect for couples or business travelers.')">
+        <h3>Deluxe Room</h3>
+        <p>₱3,500 per night</p>
+        <p class="room-description">Spacious modern room with queen-sized bed and city view.</p>
+        <button onclick="openBookingForm('Deluxe Room', '₱3,500 per night')">Book</button>
+      </div>
+
+      <!-- Suite Room -->
+      <div class="hotel-card">
+        <img src="images2/SuiteRoom.avif" alt="Suite Room"
+          onclick="showRoomDetails('Suite Room', '₱5,000 per night', 'Luxury suite with a private balcony, king-sized bed, and complimentary breakfast.')">
+        <h3>Suite Room</h3>
+        <p>₱5,000 per night</p>
+        <p class="room-description">Luxury suite with private balcony and king-sized bed.</p>
+        <button onclick="openBookingForm('Suite Room', '₱5,000 per night')">Book</button>
+      </div>
+
+      <!-- Standard Room -->
+      <div class="hotel-card">
+        <img src="images2/StandardRoom.jpg" alt="Standard Room"
+          onclick="showRoomDetails('Standard Room', '₱2,000 per night', 'A cozy standard room perfect for solo travelers, featuring all essential amenities for a comfortable stay.')">
+        <h3>Standard Room</h3>
+        <p>₱2,000 per night</p>
+        <p class="room-description">Cozy room for solo travelers with essential amenities.</p>
+        <button onclick="openBookingForm('Standard Room', '₱2,000 per night')">Book</button>
+      </div>
+    </div>
+
+    <!-- Booking Form Modal -->
+    <div id="bookingForm" class="booking-form hidden">
+      <div class="form-content">
+        <h2>Book Your Stay</h2>
+        <p id="selectedRoom"></p>
+        <form id="reservationForm">
+          <input type="text" id="guestName" placeholder="Full Name" required />
+          <input type="email" id="guestEmail" placeholder="Email Address" required />
+          <input type="date" id="checkIn" required />
+          <input type="date" id="checkOut" required />
+          <button type="submit">Confirm Booking</button>
+          <button type="button" onclick="closeForm()" class="cancel-btn">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Room Details Modal -->
+    <div id="roomDetailsModal" class="modal hidden">
+      <div class="modal-content">
+        <h2 id="roomTitle"></h2>
+        <p id="roomPrice"></p>
+        <p id="roomDescription"></p>
+        <button onclick="closeRoomDetails()">Close</button>
+      </div>
+    </div>
+
+    <!-- Reservation Section -->
+    <div class="reservation-section">
+      <!-- Document.write heading -->
+      <div class="reservation-section">
+        <h2 style='text-align:center; color:white; margin-bottom:15px;'>Your Reservation</h2>
+            <p style="text-align:center; color:#ddd; margin-bottom:20px;">Book and manage your reservations below!</p>
+  <table id="reservationTable">
+    <thead>
+      <tr>
+        <th>Room</th>
+        <th>Rate</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Check-In</th>
+        <th>Check-Out</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  </div>
+
+  <script src="Hotel.js"></script>
+</body>
+</html>
